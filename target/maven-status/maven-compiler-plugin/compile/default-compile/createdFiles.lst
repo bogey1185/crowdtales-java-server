@@ -1,3 +1,7 @@
 com/crowdtales/server/User.class
+com/crowdtales/server/WebMvcConfig.class
 com/crowdtales/server/Application.class
+com/crowdtales/server/UserRepository.class
+com/crowdtales/server/SecurityConfiguration.class
+com/crowdtales/server/UserService.class
 com/crowdtales/server/UserController.class
