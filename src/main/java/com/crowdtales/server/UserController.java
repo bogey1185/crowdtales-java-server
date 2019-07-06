@@ -53,4 +53,20 @@ public class UserController {
         } else throw new Exception("Passwords do not match");
     }
 
+    // UPDATE USER //
+
+    @PutMapping("/users/{id}")
+    public User updateUser(@RequestBody User user, @PathVariable Integer id) throws Exception {
+
+        Optional<User> originalUser = userRepository.findById(id);
+        if (originalUser.isPresent()) {
+            User userToUpdate = originalUser.get();
+            userToUpdate.setUsername(user.getUsername());
+            userToUpdate.setEmail(user.getEmail());
+            User updatedUser = userRepository.save(userToUpdate);
+            return updatedUser;
+
+        } else throw new Exception("User not found");
+    }
+
 }
