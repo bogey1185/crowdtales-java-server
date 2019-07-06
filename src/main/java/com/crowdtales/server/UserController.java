@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class UserController {
 
@@ -15,10 +17,27 @@ public class UserController {
 
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-
+    // GET ALL USERS //
 
     @GetMapping("/users")
-    public String getUsers() { return "HELLO WORLD"; }
+    public Iterable<User> getUsers() {
+        Iterable<User> users = userRepository.findAll();
+        return users;
+    }
+
+    // GET SPECIFIC USER BY ID //
+
+    @GetMapping("/users/{id}")
+    public User getUser(@PathVariable Integer id) throws Exception {
+        Optional<User> foundUser = userRepository.findById(id);
+        if (foundUser.isPresent()) {
+            User user = foundUser.get();
+            return user;
+
+        } else throw new Exception("User not found");
+    }
+
+    // REGISTER USER //
 
     @PostMapping("/users")
     public User createUser(@RequestBody User user) throws Exception {
