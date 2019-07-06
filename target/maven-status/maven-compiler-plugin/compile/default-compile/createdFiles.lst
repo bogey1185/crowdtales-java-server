@@ -4,4 +4,5 @@ com/crowdtales/server/Application.class
 com/crowdtales/server/UserRepository.class
 com/crowdtales/server/SecurityConfiguration.class
 com/crowdtales/server/UserService.class
+com/crowdtales/server/CorsConfig.class
 com/crowdtales/server/UserController.class
