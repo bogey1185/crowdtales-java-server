@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -75,5 +76,14 @@ public class StoryController {
     public String deleteStory(@PathVariable int id) {
         storyRepository.deleteById(id);
         return "resource deleted";
+    }
+
+    // delete all stories with particular userid
+    
+    @DeleteMapping("/stories/deleteall/{id}")
+    @Transactional
+    public String deleteAllStoriesWithUserId(@PathVariable int id) {
+        storyRepository.deleteAllByUserid(id);
+        return "resources deleted";
     }
 }
