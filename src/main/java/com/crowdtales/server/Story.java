@@ -13,7 +13,7 @@ public class Story {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int Id;
-    private int user_id;
+    private int userid;
     private Date date;
     private String genre;
     private String title;
@@ -25,8 +25,8 @@ public class Story {
     public int getId() { return Id; }
     public void setId(int id) { Id = id; }
 
-    public int getUser_id() { return user_id; }
-    public void setUser_id(int user_id) {this.user_id = user_id; }
+    public int getUserid() { return userid; }
+    public void setUserid(int userid) {this.userid = userid; }
 
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }

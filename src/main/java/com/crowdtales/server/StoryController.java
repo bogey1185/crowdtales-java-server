@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
-import java.util.Dictionary;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -30,13 +30,23 @@ public class StoryController {
     @GetMapping("/stories/{id}")
     public Optional<Story> getStoryById(@PathVariable int id) { return storyRepository.findById(id); }
 
+    // Get all stories with specific user id //
+
+    @GetMapping("/userstories/{id}")
+    public HashMap<String, Iterable<Story>> getUserStories(@PathVariable int id) {
+        HashMap<String, Iterable<Story>> storyMap = new HashMap<String, Iterable<Story>>();
+        Iterable<Story> stories = storyRepository.findAllByUserid(id);
+        storyMap.put("stories", stories);
+        return storyMap;
+    }
+
     // Create story //
 
     @PostMapping("/stories")
     public Story createStory(@RequestBody Story story, HttpSession session) {
         String currentUsername = session.getAttribute("username").toString();
         int currentId = Integer.parseInt(session.getAttribute("id").toString());
-        story.setUser_id(currentId);
+        story.setUserid(currentId);
         story.setUsername(currentUsername);
         story.setDate(new Date());
         return storyRepository.save(story);
@@ -66,8 +76,4 @@ public class StoryController {
         storyRepository.deleteById(id);
         return "resource deleted";
     }
-
-
-
-
 }
