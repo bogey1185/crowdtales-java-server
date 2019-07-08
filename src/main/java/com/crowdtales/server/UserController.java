@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Optional;
 
 @RestController
@@ -72,6 +74,24 @@ public class UserController {
         userRepository.deleteById(id);
         return "User deleted";
     }
+
+    // LOGIN USER //
+
+    @PostMapping("/login")
+    public User login(@RequestBody User loginUser, HttpSession session) throws IOException {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        User user = userService.findUserByUsername(loginUser.getUsername());
+        if (user == null) {
+            throw new IOException("Invalid credentials");
+        }
+        boolean passwordIsValid = bCryptPasswordEncoder.matches(loginUser.getPassword(), user.getPassword());
+        if (passwordIsValid) {
+            session.setAttribute("username", user.getUsername());
+            session.setAttribute("id", user.getId());
+            return user;
+        } else throw new IOException("Invalid credentials");
+    }
+
 
 
 

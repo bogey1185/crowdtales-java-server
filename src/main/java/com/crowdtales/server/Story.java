@@ -19,7 +19,8 @@ public class Story {
     private String title;
     private String text;
     private String status = "in prompt";
-    private String currentContrib = "";
+    private String currentcontrib = "";
+    private String username;
 
     public int getId() { return Id; }
     public void setId(int id) { Id = id; }
@@ -42,6 +43,9 @@ public class Story {
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
 
-    public String getCurrentContrib() { return currentContrib; }
-    public void setCurrentContrib(String currentContrib) { this.currentContrib = currentContrib; }
+    public String getCurrentcontrib() { return currentcontrib; }
+    public void setCurrentcontrib(String currentcontrib) { this.currentcontrib = currentcontrib; }
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
 }
