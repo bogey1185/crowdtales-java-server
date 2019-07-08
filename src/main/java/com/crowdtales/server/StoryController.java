@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.Dictionary;
+import java.util.HashMap;
 import java.util.Optional;
 
 @RestController
@@ -16,7 +18,12 @@ public class StoryController {
     // Get all stories //
 
     @GetMapping("/stories")
-    public Iterable<Story> getStories() { return storyRepository.findAll(); }
+    public HashMap<String, Iterable<Story>> getStories() {
+        HashMap<String, Iterable<Story>> storyMap = new HashMap<String, Iterable<Story>>();
+        Iterable<Story> stories = storyRepository.findAll();
+        storyMap.put("stories", stories);
+        return storyMap;
+    }
 
     // Get specific story
 
@@ -33,6 +40,31 @@ public class StoryController {
         story.setUsername(currentUsername);
         story.setDate(new Date());
         return storyRepository.save(story);
+    }
+
+    // edit story //
+
+    @PutMapping("/stories/{id}")
+    public Story editStory(@RequestBody Story story, @PathVariable int id) throws Exception {
+        Optional<Story> foundStory = storyRepository.findById(id);
+        if (foundStory.isPresent()) {
+            Story storyToUpdate = foundStory.get();
+            storyToUpdate.setCurrentcontrib(story.getCurrentcontrib());
+            storyToUpdate.setGenre(story.getGenre());
+            storyToUpdate.setStatus(story.getStatus());
+            storyToUpdate.setText(story.getText());
+            storyToUpdate.setTitle(story.getTitle());
+            return storyRepository.save(storyToUpdate);
+
+        } else throw new Exception("story not found");
+    }
+
+    // delete story //
+
+    @DeleteMapping("/stories/{id}")
+    public String deleteStory(@PathVariable int id) {
+        storyRepository.deleteById(id);
+        return "resource deleted";
     }
 
 
