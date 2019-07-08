@@ -21,8 +21,7 @@ public class UserController {
 
     @GetMapping("/users")
     public Iterable<User> getUsers() {
-        Iterable<User> users = userRepository.findAll();
-        return users;
+        return userRepository.findAll();
     }
 
     // GET SPECIFIC USER BY ID //
@@ -31,8 +30,7 @@ public class UserController {
     public User getUser(@PathVariable Integer id) throws Exception {
         Optional<User> foundUser = userRepository.findById(id);
         if (foundUser.isPresent()) {
-            User user = foundUser.get();
-            return user;
+            return foundUser.get();
 
         } else throw new Exception("User not found");
     }
@@ -47,8 +45,7 @@ public class UserController {
         if (passwordOne.equals(passwordTwo)) {
             user.setEmail(user.getEmail().toLowerCase());
             user.setPassword2AsNull();
-            User createdUser = userService.saveUser(user);
-            return createdUser;
+            return userService.saveUser(user);
 
         } else throw new Exception("Passwords do not match");
     }
@@ -63,8 +60,7 @@ public class UserController {
             User userToUpdate = originalUser.get();
             userToUpdate.setUsername(user.getUsername());
             userToUpdate.setEmail(user.getEmail());
-            User updatedUser = userRepository.save(userToUpdate);
-            return updatedUser;
+            return userRepository.save(userToUpdate);
 
         } else throw new Exception("User not found");
     }
@@ -76,5 +72,7 @@ public class UserController {
         userRepository.deleteById(id);
         return "User deleted";
     }
+
+
 
 }
