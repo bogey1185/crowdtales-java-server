@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eabefafd-b7fc-48df-a02d-f1ada82025c5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/crowdtales/server/Content.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/crowdtales/server/Content.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/crowdtales/server/ContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/crowdtales/server/ContentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/CorsConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/SecurityConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/Story.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/StoryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/StoryRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/UserRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/crowdtales/server/WebMvcConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,8 +45,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/crowdtales/server/ContentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            <state relative-caret-position="360">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#543#570#0" expanded="true" />
@@ -401,8 +413,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/crowdtales/server/ContentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        <state relative-caret-position="360">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#543#570#0" expanded="true" />

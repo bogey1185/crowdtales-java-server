@@ -22,7 +22,7 @@ public class ContentController {
     public HashMap<String, Iterable<Content>> getAllContent() {
         HashMap<String, Iterable<Content>> content = new HashMap<String, Iterable<Content>>();
         Iterable<Content> allContent = contentRepository.findAll();
-        content.put("content": allContent);
+        content.put("content", allContent);
         return content;
     }
 
