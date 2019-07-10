@@ -18,7 +18,7 @@ public class Content {
     private String title;
     private String text;
     private Date date;
-    private String storyid;
+    private int storyid;
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -38,6 +38,7 @@ public class Content {
     public Date getDate() { return date; }
     public void setDate(Date date) { this.date = date; }
 
-    public String getStoryid() { return storyid; }
-    public void setStoryid(String storyid) { this.storyid = storyid; }
+    public int getStoryid() { return storyid; }
+    public void setStoryid(int storyid) { this.storyid = storyid; }
 }
+
