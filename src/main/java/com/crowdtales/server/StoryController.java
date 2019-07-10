@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -79,7 +78,7 @@ public class StoryController {
     }
 
     // delete all stories with particular userid
-    
+
     @DeleteMapping("/stories/deleteall/{id}")
     @Transactional
     public String deleteAllStoriesWithUserId(@PathVariable int id) {

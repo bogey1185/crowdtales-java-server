@@ -12,18 +12,23 @@ public class Story {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int Id;
+    private int id;
     private int userid;
     private Date date;
     private String genre;
     private String title;
     private String text;
-    private String status = "in prompt";
-    private String currentcontrib = "";
+    private String status;
+    private String currentcontrib;
     private String username;
 
-    public int getId() { return Id; }
-    public void setId(int id) { Id = id; }
+    public Story() {
+        status = "in prompt";
+        currentcontrib = "";
+    }
+
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
 
     public int getUserid() { return userid; }
     public void setUserid(int userid) {this.userid = userid; }
